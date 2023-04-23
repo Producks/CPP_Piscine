@@ -11,6 +11,8 @@ int	main(int argc, char *argv[])
 	{
 		std::cout << "Please enter a command:";
 		std::cin >> comment;
+		if (std::cin.fail())
+			break ;
 		if (comment == "ADD")
 		{
 			std::string first_name, last_name, nickname, phone_number, secret;
