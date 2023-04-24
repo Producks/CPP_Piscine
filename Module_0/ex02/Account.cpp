@@ -65,12 +65,15 @@ void Account::_displayTimestamp(void)
 	std::time_t current_time = std::time(NULL);
 	std::tm* time_struct = std::localtime(&current_time);
 	std::ostringstream date_stream;
-	date_stream << "[" << time_struct->tm_year + 1900 
+	date_stream << "[" 
+				<< std::setw(4) << std::setfill('0') << time_struct->tm_year + 1900 
 				<< std::setw(2) << std::setfill('0') << time_struct->tm_mon + 1
-				<< std::setw(2) << std::setfill('0') << time_struct->tm_mday << '_'
+				<< std::setw(2) << std::setfill('0') << time_struct->tm_mday 
+				<< '_'
 				<< std::setw(2) << std::setfill('0') << time_struct->tm_hour
 				<< std::setw(2) << std::setfill('0') << time_struct->tm_min
-				<< std::setw(2) << std::setfill('0') << time_struct->tm_sec << "] ";
+				<< std::setw(2) << std::setfill('0') << time_struct->tm_sec 
+				<< "] ";
 	std::string date_string = date_stream.str();
 	std::cout << date_string;
 }
