@@ -6,7 +6,7 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 	this->first_name = first_name;
 	this->last_name = last_name;
 	this->phone_number = phone_number;
-	this->secret = secret; // read again this what it does
+	this->secret = secret;
 	this->nickname = nickname;
 }
 

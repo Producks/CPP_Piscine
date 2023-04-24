@@ -1,5 +1,7 @@
 #include <ctime>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include "Account.hpp"
 
 int Account::_nbAccounts = 0;
@@ -56,10 +58,21 @@ void Account::displayAccountsInfos(void)
 	<< Account::getNbWithdrawals() << std::endl; 
 }
 
+// Format:  YYYYMMDD_HHMMSS
+// example: [19920104_091532]
 void Account::_displayTimestamp(void)
 {
 	std::time_t current_time = std::time(NULL);
-	std::cout << "[" << current_time << "] ";
+	std::tm* time_struct = std::localtime(&current_time);
+	std::ostringstream date_stream;
+	date_stream << "[" << time_struct->tm_year + 1900 
+				<< std::setw(2) << std::setfill('0') << time_struct->tm_mon + 1
+				<< std::setw(2) << std::setfill('0') << time_struct->tm_mday << '_'
+				<< std::setw(2) << std::setfill('0') << time_struct->tm_hour
+				<< std::setw(2) << std::setfill('0') << time_struct->tm_min
+				<< std::setw(2) << std::setfill('0') << time_struct->tm_sec << "] ";
+	std::string date_string = date_stream.str();
+	std::cout << date_string;
 }
 
 //[19920104_091532] index:0;p_amount:47;withdrawal:refused
