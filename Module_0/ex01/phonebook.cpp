@@ -29,11 +29,11 @@ void PhoneBook::DisplayContact()
 	{
 		std::cout << std::setw(10) << std::right << index + 1;
 		std::cout << "|";
-		std::cout << std::setw(10) << std::right << trunc_str(this->contacts[index].first_name);
+		std::cout << std::setw(10) << std::right << trunc_str(this->contacts[index].GetFirstName());
 		std::cout << "|";
-		std::cout << std::setw(10) << std::right << trunc_str(this->contacts[index].last_name);
+		std::cout << std::setw(10) << std::right << trunc_str(this->contacts[index].GetLastName());
 		std::cout << "|";
-		std::cout << std::setw(10) << std::right << trunc_str(this->contacts[index].nickname);
+		std::cout << std::setw(10) << std::right << trunc_str(this->contacts[index].GetNickName());
 		std::cout << std::endl;
 	}
 }
