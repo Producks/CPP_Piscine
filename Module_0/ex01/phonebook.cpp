@@ -10,7 +10,7 @@ PhoneBook::PhoneBook()
 void PhoneBook::AddContact(Contact contact)
 {
 	this->contacts[this->add_contact_index] = contact;
-	if (this->current_amount_contact < 8)
+	if (this->current_amount_contact < MAX_AMOUNT_CONTACTS)
 		this->current_amount_contact++;
 	this->add_contact_index = (this->add_contact_index + 1) % MAX_AMOUNT_CONTACTS;
 }

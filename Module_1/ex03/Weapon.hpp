@@ -5,12 +5,13 @@
 
 class Weapon
 {
-	public:
-	Weapon(std::string type);
-	std::string getType();
-	void setType(std::string type);
-	private:
+private:
 	std::string type;
+
+public:
+	Weapon(std::string type);
+	const std::string getType();
+	void setType(std::string type);
 };
 
 #endif

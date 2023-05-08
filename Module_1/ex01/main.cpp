@@ -7,6 +7,6 @@ int	main(void)
 	{
 		zombiehorde[i].announce();
 	}
-	delete[] zombiehorde; // ??????
+	delete[] zombiehorde;
 	return 0;
 }
