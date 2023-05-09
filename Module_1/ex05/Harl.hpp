@@ -2,22 +2,19 @@
 # define HARL_HPP
 
 #include <iostream>
-#include <map>
-
 class Harl
 {
-	typedef void (Harl::*t_func)(void);
-	
-	public:
-	Harl();
-	void complain(std::string level);
-
-	private:
+private:
 	void debug();
 	void info();
 	void warning();
 	void error();
-	std::map<std::string, t_func> functions_map;//
+	std::string level_array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	
+public:
+	Harl();
+	~Harl();
+	void complain(std::string level);
 };
 
 #endif

@@ -1,4 +1,4 @@
-NAME = karen
+NAME = karen_complain_simulator
 
 CC = c++
 

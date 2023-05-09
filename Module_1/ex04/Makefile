@@ -6,8 +6,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRC =	main.cpp \
-		
+TESTER = ./sed Makefile = 69
+
+SRC =	main.cpp 
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -23,5 +24,8 @@ fclean:clean
 		$(RM) $(NAME)
 
 re:fclean all
+
+tester:re
+		$(TESTER)
 
 .PHONY: all clean re

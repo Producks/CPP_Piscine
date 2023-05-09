@@ -1,17 +1,17 @@
-#include <functional>
 #include "Harl.hpp"
 
-Harl::Harl()
-{
-	this->functions_map["DEBUG"] = &Harl::debug;
-	this->functions_map["INFO"] = &Harl::info;
-	this->functions_map["WARNING"] = &Harl::warning;
-	this->functions_map["ERROR"] = &Harl::error;
-}
+Harl::Harl(){}
+
+Harl::~Harl(){}
 
 void Harl::complain(std::string level)
 {
-	std::invoke(functions_map[level], this);
+	void (Harl::*func_ptr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	for (int i = 0; i < 4; i++)
+	{
+		if (level_array[i] == level)
+			(this->*func_ptr[i])();
+	}
 }
 
 void Harl::debug()
@@ -30,6 +30,7 @@ void Harl::warning()
 	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
+/*Function should be rename to karen*/
 void Harl::error()
 {
 	std::cout << "This is unacceptable ! I want to speak to the manager now" << std::endl;
