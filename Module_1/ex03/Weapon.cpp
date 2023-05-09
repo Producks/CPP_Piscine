@@ -2,10 +2,10 @@
 
 Weapon::Weapon(std::string weaponType)
 {
-	this->type = weaponType;
+	type = weaponType;
 }
 
-const std::string Weapon::getType()
+const std::string& Weapon::getType() const
 {
 	return type;
 }
