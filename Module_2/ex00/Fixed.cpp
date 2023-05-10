@@ -10,14 +10,15 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed& ref_class)
 {
 	std::cout << "\x1B[33mCopy\x1B[0m constructor called" << std::endl;
-	fixed_integer = ref_class.fixed_integer;
+	fixed_integer = ref_class.getRawBits(); // create a copy
 }
 
+// a = b = c <---
 Fixed& Fixed::operator=(const Fixed& ref_class)
 {
 	std::cout << "\x1B[35mCopy assignment\x1B[0m operator called" << std::endl;
-	this->fixed_integer = ref_class.fixed_integer;
-	return *this;
+	this->fixed_integer = ref_class.getRawBits();
+	return *this; //check later
 }
 
 Fixed::~Fixed()

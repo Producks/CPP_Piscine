@@ -1,0 +1,12 @@
+Orthodox Canonical Form
+
+• Default constructor
+
+• Copy constructor
+Make a copy with something pass by ref
+
+• Copy assignment operator
+Overloading has to be assigned first or it call Copy constructor
+
+• Destructor
+
