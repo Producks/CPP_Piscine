@@ -1,5 +1,7 @@
 #include "Weapon.hpp"
 
+Weapon::Weapon(){}
+
 Weapon::Weapon(std::string weaponType)
 {
 	type = weaponType;

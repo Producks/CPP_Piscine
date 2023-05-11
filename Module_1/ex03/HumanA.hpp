@@ -7,6 +7,7 @@
 class HumanA
 {
 private:
+	HumanA();
 	Weapon *weapon;
 	std::string name;
 

@@ -9,7 +9,7 @@ private:
 	void info();
 	void warning();
 	void error();
-	std::string level_array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string level_array[4];
 	
 public:
 	Harl();

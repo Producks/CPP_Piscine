@@ -5,6 +5,10 @@ Harl::Harl(){}
 
 Harl::Harl(std::string intensity)
 {
+	level_array[0] = "DEBUG";
+	level_array[1] = "INFO";
+	level_array[2] = "WARNING";
+	level_array[3] = "ERROR";
 	filter = intensity;
 }
 

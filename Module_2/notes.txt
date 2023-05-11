@@ -10,3 +10,16 @@ Overloading has to be assigned first or it call Copy constructor
 
 • Destructor
 
+
+
+
+		s eeeeeeee mmmmmmmmmmmmmmmmmmmmmmm
+				0 00000000 00000000000000000000000
+				|    |
+				|	 |
+				|	 |
+				|	 |
+    Sign bit <- | 	 |
+					 |
+					 |
+					 

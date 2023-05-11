@@ -12,7 +12,7 @@ private:
 	void warning();
 	void error();
 	void karen();
-	std::string level_array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string level_array[4];
 	std::string	filter;
 
 public:
