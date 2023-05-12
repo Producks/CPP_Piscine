@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Fixed.hpp"
 
+
 Fixed::Fixed()
 {
 	std::cout << "\x1B[32mDefault\x1B[0m constructor called" << std::endl;

@@ -11,15 +11,23 @@ Overloading has to be assigned first or it call Copy constructor
 • Destructor
 
 
-
-
-		s eeeeeeee mmmmmmmmmmmmmmmmmmmmmmm
+				+-----------------------------------+
+				|       Scientific notation			|
+				|    	    		   ₑ			|
+				|    	   1.xxxxxx X 2    			|
+				|    	     mantissa				|
+				+-----------------------------------+
 				0 00000000 00000000000000000000000
-				|    |
-				|	 |
-				|	 |
-				|	 |
-    Sign bit <- | 	 |
+				|    |              |
+				|	 |              |
+				|	 |              |
+				|	 |              |
+    Sign bit <- | 	 |              |-> Fraction bits / mantissa
+0 = positive         |
+1 = negative	     |
 					 |
 					 |
+					 |
+					 Exposant bits
+					 
 					 

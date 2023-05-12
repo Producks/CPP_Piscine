@@ -4,9 +4,10 @@
 class Fixed
 {
 private:
-		Fixed();
+		int	fixed_integer;
 		static const uint8_t fractional = 8;
 public:
+		Fixed();
 		Fixed(const int number);
 		Fixed(const float number);
 		~Fixed();
