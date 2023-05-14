@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = FixedPointNumber
 
 CC = c++
 

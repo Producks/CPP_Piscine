@@ -7,7 +7,7 @@ class Fixed
 {
 private:
 		int	fixed_integer;
-		static const uint8_t fractional = 8;
+		static const uint8_t fractional = 8; // store mandissa
 
 public:
 		//Default constructor
