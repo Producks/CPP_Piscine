@@ -21,7 +21,7 @@ What is overloading?
 				|    	   1.xxxxxx X 2    			|
 				|    	     mantissa				|
 				+-----------------------------------+
-				0 00000000 00000000000000000000000
+				0   0000          00000
 				|    |              |
 				|	 |              |
 				|	 |              |
@@ -32,6 +32,6 @@ What is overloading?
 					 |
 					 |
 					 |
-					 Exposant bits
+					 Integer
 					 
 					 

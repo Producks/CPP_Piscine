@@ -5,29 +5,29 @@
 class Fixed
 {
 private:
-		int	fixed_value_;
+		int32_t	fixed_value_;
 		static const uint8_t fractional = 8;
 public:
 		//Orthodox Canonical Form
 		Fixed();
-		Fixed(const int number);
-		Fixed& operator=(const Fixed& ref_class);
+		Fixed(const Fixed& rhs);
+		Fixed& operator=(const Fixed& rhs);
 		~Fixed();
 
 		//Constructor asked by subject
+		Fixed(const int32_t number);
 		Fixed(const float number);
-		Fixed(const Fixed& ref_class);
 
 		//Getter and Setter
-		int 	getRawBits(void) const;
-		void 	setRawBits(int const rawBits);
+		int32_t		getRawBits(void) const;
+		void		setRawBits(int32_t const rawBits);
 
 		//Member function asked by subject
-		float 	toFloat(void) const;
-		int		toInt(void) const;
+		float		toFloat(void) const;
+		int32_t		toInt(void) const;
 };
 
-std::ostream& operator<<(std::ostream& out, const Fixed &ref_fixed);
+std::ostream& operator<<(std::ostream& out, const Fixed &rhs);
 
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"

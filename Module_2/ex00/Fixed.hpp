@@ -6,28 +6,19 @@
 class Fixed
 {
 private:
-		int	fixed_integer;
-		static const uint8_t fractional = 8; // store mandissa
+		int32_t	fixed_integer;
+		static const uint8_t fractional = 8;
 
 public:
-		//Default constructor
+		//Orthodox Canonical Form
 		Fixed();
-
-		//Copy constructor
-		Fixed(const Fixed& ref_class);
-
-		//= Overload constructor
-		Fixed& operator=(const Fixed& ref_class);
-
-		//Destructor
+		Fixed(const Fixed& rhs);
+		Fixed& operator=(const Fixed& rhs);
 		~Fixed();
 
-		//Getter
-		int getRawBits(void) const;
-
-		//Setter
-		void setRawBits(int const raw);
-
+		//Getter and Setter
+		int32_t getRawBits(void) const;
+		void setRawBits(int32_t const raw);
 };
 
 #endif
