@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits.h>
 #include "Fixed.hpp"
 
 #define RED   "\x1B[31m"

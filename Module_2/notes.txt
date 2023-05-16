@@ -21,17 +21,35 @@ What is overloading?
 				|    	   1.xxxxxx X 2    			|
 				|    	     mantissa				|
 				+-----------------------------------+
-				0   0000          00000
+				0   000          00000
 				|    |              |
 				|	 |              |
 				|	 |              |
 				|	 |              |
-    Sign bit <- | 	 |              |-> Fraction bits / mantissa
+    Sign bit <- | 	 |              |-> mantissa
 0 = positive         |
 1 = negative	     |
 					 |
 					 |
 					 |
-					 Integer
+					 exposant
 					 
 					 
+				+-----------------------------------+
+				|      Floating point number		|
+				+-----------------------------------+
+
+256 * number = Floating point number
+Conversion back = number / 256
+
+				0   00000000000000000000000    00000000
+				|	          |					   |
+				|			  |					   |
+				|			  |					   |
+				|			  |					   |
+     Sign bit <-|			  |					   |-> 8 Fractional
+	 						  |
+							  |
+							  |
+							  |
+						   23 integer
