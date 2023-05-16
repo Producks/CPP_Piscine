@@ -4,11 +4,10 @@
 
 int	main(void)
 {
-	Point point;
-	Point point2;
-	Point point3;
-	Point point4;
+	Point a(1, 1);
+	Point b(5, 5);
+	Point c(3, 3);
+	Point point(3, 4);
 
-	bsp(point, point2, point3, point4);
-	// std::cout << point._x.getRawBits() << std::endl;
+	std::cout << bsp(a, b, c, point) << std::endl;
 }

@@ -50,28 +50,32 @@ bool Fixed::operator!=(const Fixed& rhs) const{
 Fixed Fixed::operator+(const Fixed& rhs) const{
 	Fixed result;
 
-	result.setRawBits((fixed_number_ + (rhs.getRawBits() >> fractional)));
+	result.setRawBits(fixed_number_ + rhs.getRawBits());
 	return result;
 }
 
 Fixed Fixed::operator-(const Fixed& rhs) const{
 	Fixed result;
 
-	result.setRawBits((fixed_number_ - (rhs.getRawBits() >> fractional)));
+	result.setRawBits(fixed_number_ - rhs.getRawBits());
 	return result;
 }
 
 Fixed Fixed::operator*(const Fixed& rhs) const{
 	Fixed result;
-
-	result.setRawBits((fixed_number_ * (rhs.getRawBits() >> fractional)));
+	
+	result.setRawBits((fixed_number_ * rhs.getRawBits()) >> fractional);
 	return result;
 }
 
 Fixed Fixed::operator/(const Fixed& rhs) const{
 	Fixed result;
 
-	result.setRawBits((fixed_number_ / (rhs.getRawBits() >> fractional)));
+	if (rhs.getRawBits() == 0){
+		std::cout << "Dividing by zero bozo 🤡" << std::endl;
+		return result;
+	}
+	result.setRawBits((fixed_number_ * (1 << fractional)) / rhs.getRawBits());
 	return result;
 }
 
