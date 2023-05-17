@@ -8,6 +8,12 @@ int	main(void)
 	Point b(5, 5);
 	Point c(3, 3);
 	Point point(3, 4);
+	bool	result;
 
-	std::cout << bsp(a, b, c, point) << std::endl;
+	result = bsp(a, b, c, point);
+	if (result == true)
+		std::cout << "true" << std::endl;
+	else
+		std::cout << "false" << std::endl;
+	return 0;
 }

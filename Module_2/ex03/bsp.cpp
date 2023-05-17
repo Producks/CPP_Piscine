@@ -34,9 +34,6 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	int32_t dotBC = getDotProduct(BC, BP);
 	int32_t dotCA = getDotProduct(CA, CP);
 	
-	std::cout << dotAB << std::endl;
-	std::cout << dotBC << std::endl;
-	std::cout << dotCA << std::endl;
 	if (dotAB >= 0 && dotBC >= 0 && dotCA >= 0)
 		return true;
 	if (dotAB < 0 && dotBC < 0 && dotCA < 0)

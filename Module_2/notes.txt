@@ -11,10 +11,6 @@ Overloading has to be assigned first or it call Copy constructor
 • Destructor
 
 
-What is overloading?
-
-
-
 				+-----------------------------------+
 				|       Scientific notation			|
 				|    	    		   ₑ			|
