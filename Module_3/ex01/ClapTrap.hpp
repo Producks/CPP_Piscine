@@ -5,14 +5,14 @@
 
 class ClapTrap
 {
-private:
+protected:
 		ClapTrap();
 		std::string name;
 		int32_t hitPoint;
 		int32_t energyPoint;
 		int32_t attackDamage;
 public:
-		ClapTrap(std::string& nameToSet);
+		ClapTrap(std::string nameToSet);
 		ClapTrap(const ClapTrap& rhs);
 		ClapTrap& operator=(const ClapTrap rhs);
 		~ClapTrap();

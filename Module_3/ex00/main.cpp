@@ -7,6 +7,7 @@ int	main(void)
 	std::string human = "human";
 	ClapTrap chatGPT(robotOne);
 
+	std::cout << Reverse;
 	chatGPT.attack(human);
 	for (int i = 0; i < 9; i++)
 		chatGPT.beRepaired(69);

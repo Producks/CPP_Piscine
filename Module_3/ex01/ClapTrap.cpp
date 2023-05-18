@@ -3,7 +3,7 @@
 
 ClapTrap::ClapTrap(){}
 
-ClapTrap::ClapTrap(std::string& nameToSet)
+ClapTrap::ClapTrap(std::string nameToSet)
 {
 	std::cout << GRN << "Default constructor called" << RESET << std::endl;
 	name = nameToSet;
