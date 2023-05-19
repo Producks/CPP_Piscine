@@ -7,9 +7,9 @@ ClapTrap::ClapTrap(std::string nameToSet)
 {
 	std::cout << GRN << "Default constructor called" << RESET << std::endl;
 	name = nameToSet;
-	hitPoint = 10;
-	energyPoint = 10;
-	attackDamage = 0;
+	hitPoint = 100;
+	energyPoint = 50;
+	attackDamage = 20;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& rhs)

@@ -5,7 +5,7 @@
 class ScavTrap: public ClapTrap
 {
 private:
-		bool _activated;
+		bool _guard_active;
 public:
 		ScavTrap(const std::string& name);
 		~ScavTrap();
