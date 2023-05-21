@@ -1,11 +1,14 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){}
+ClapTrap::ClapTrap(): _name("\0"), _hitPoint(10), _energyPoint(10), _attackDamage(0) 
+{
+	std::cout << GRN << "ClapTrap Default constructor called" << RESET << std::endl;
+}
 
 ClapTrap::ClapTrap(const std::string nameToSet) : _name(nameToSet), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
-	std::cout << GRN << "Default constructor called" << RESET << std::endl;
+	std::cout << GRN << "ClapTrap Default constructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& rhs)

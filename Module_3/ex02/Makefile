@@ -8,7 +8,8 @@ RM = rm -rf
 
 SRC =	main.cpp \
 		ClapTrap.cpp \
-		ScavTrap.cpp
+		ScavTrap.cpp \
+		FragTrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

@@ -1,9 +1,19 @@
 #include <iostream>
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name), _guard_active(false)
+ScavTrap::ScavTrap(): _guard_active(false)
 {
-	std::cout << Underline << GRN << "ScavTrap Constructor Called" << RESET << std::endl;
+	std::cout << Underline << GRN << "ScavTrap Default Constructor Called" << RESET << std::endl;
+	_name = "\0";
+	_hitPoint = 100;
+	_energyPoint = 50;
+	_attackDamage = 20;
+}
+
+ScavTrap::ScavTrap(const std::string &nameToSet) : _guard_active(false)
+{
+	std::cout << Underline << GRN << "ScavTrap Name Constructor Called" << RESET << std::endl;
+	_name = nameToSet;
 	_hitPoint = 100;
 	_energyPoint = 50;
 	_attackDamage = 20;

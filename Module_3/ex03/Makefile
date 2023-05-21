@@ -1,4 +1,4 @@
-NAME = scavtrap
+NAME = DiamondTrap
 
 CC = c++
 
@@ -8,7 +8,9 @@ RM = rm -rf
 
 SRC =	main.cpp \
 		ClapTrap.cpp \
-		ScavTrap.cpp
+		ScavTrap.cpp \
+		FragTrap.cpp \
+		DiamondTrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

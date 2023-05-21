@@ -2,13 +2,14 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 private:
-		ScavTrap();
 		bool _guard_active;
+protected:
+		ScavTrap();
 public:
-		ScavTrap(const std::string& name);
+		ScavTrap(const std::string& nameToSet);
 		ScavTrap(const ScavTrap& rhs);
 		ScavTrap& operator=(const ScavTrap& rhs);
 		~ScavTrap();
