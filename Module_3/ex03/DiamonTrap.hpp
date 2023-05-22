@@ -5,7 +5,8 @@
 #include "ScavTrap.hpp"
 
 
-class DiamondTrap: public ScavTrap, public FragTrap // how to get fired from your job
+class DiamondTrap: public ScavTrap, public FragTrap // how to get fired from your job https://en.wikipedia.org/wiki/Multiple_inheritance
+// Deadly Diamond of Death, BOZO EXERCISE 🤡 🤡 🤡 🤡 🤡
 {
 private:
 		std::string _name;
