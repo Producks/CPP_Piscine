@@ -3,14 +3,29 @@
 
 int main(void)
 {
-    //ClapTrap gpt("GPT4");
-    ScavTrap human("GPT3");
-    human.beRepaired(69);
-    human.guardGate();      
-    human.guardGate();
-	for (int i = 0; i < 50; i++)
-		human.takeDamage(10);
-// 	for (int i = 0; i < 50; i++)
-// 		gpt.takeDamage(1);
-// 	gpt.attack("LOL");
+	{
+		ScavTrap raichu("Raichu");
+
+		raichu.attack("Onyx");
+		raichu.beRepaired(50);
+		raichu.takeDamage(69);
+		raichu.guardGate();
+		raichu.guardGate();
+
+		ClapTrap pika("Pikachu");
+		//pika.guardGate(); doesn't have access to it
+		pika.attack("Onyx");
+		pika.takeDamage(69);
+		pika.attack("Onyx");
+		raichu.takeDamage(69);
+	}
+	std::cout << "------------------------------------------------------" << std::endl;
+	{
+		ScavTrap raichu("Raichu");
+
+		raichu.takeDamage(50);
+		ScavTrap raichu_two = raichu;
+		raichu.beRepaired(1);
+		raichu_two.beRepaired(10);
+	}
 }

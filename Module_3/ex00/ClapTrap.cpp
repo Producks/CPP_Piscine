@@ -3,13 +3,13 @@
 
 ClapTrap::ClapTrap(){}
 
-ClapTrap::ClapTrap(std::string& nameToSet)
+ClapTrap::ClapTrap(const std::string& nameToSet)
 {
-	std::cout << GRN << "Default constructor called" << RESET << std::endl;
-	name = nameToSet;
-	hitPoint = 10;
-	energyPoint = 10;
-	attackDamage = 0;
+	std::cout << GRN << "Name constructor called" << RESET << std::endl;
+	_name = nameToSet;
+	_hitPoint = 10;
+	_energyPoint = 10;
+	_attackDamage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& rhs)
@@ -18,13 +18,13 @@ ClapTrap::ClapTrap(const ClapTrap& rhs)
 	*this = rhs;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap rhs)
+ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)
 {
 	std::cout << PNK << "Copy operator called" << RESET << std::endl;
-	this->name = rhs.name;
-	this->hitPoint = rhs.hitPoint;
-	this->energyPoint = rhs.energyPoint;
-	this->attackDamage = rhs.attackDamage;
+	this->_name = rhs._name;
+	this->_hitPoint = rhs._hitPoint;
+	this->_energyPoint = rhs._energyPoint;
+	this->_attackDamage = rhs._attackDamage;
 	return *this;
 }
 
@@ -36,35 +36,35 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (canPerformAction())
 	{
-		energyPoint--;
-		std::cout << BGRE << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << RESET << std::endl;
+		_energyPoint--;
+		std::cout << BGRE << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << RESET << std::endl;
 	 }
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	hitPoint -= amount;
-	if (hitPoint < 0)
-		hitPoint = 0;
-	std::cout << BRED << "ClapTrap take " << amount << " damage and goes down to " << hitPoint << " hitpoint" << std::endl;
+	_hitPoint -= amount;
+	if (_hitPoint < 0)
+		_hitPoint = 0;
+	std::cout << BRED << "ClapTrap " << _name <<" take " << amount << " damage and goes down to " << _hitPoint << " hitPoint" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (canPerformAction())
 	{
-		energyPoint--;
-		hitPoint += amount;
-		std::cout << YEL << "ClapTrap repair itself and is now at " << hitPoint << " hitpoint" << RESET << std::endl;
+		_energyPoint--;
+		_hitPoint += amount;
+		std::cout << YEL << "ClapTrap " << _name << " repair itself for " << amount << " and is now at " << _hitPoint << " hitPoint" << RESET << std::endl;
 	}
 }
 
 bool ClapTrap::canPerformAction() const
 {
-	if (hitPoint == 0)
-		std::cout << RED << "Cannot perform action no hitpoint left 💀" << RESET << std::endl;
-	else if (energyPoint == 0)
-		std::cout << RED << "Cannot perform action no energy left" << RESET << std::endl;
+	if (_hitPoint == 0)
+		std::cout << BACKGROUNDRED << _name << " cannot perform action no hitPoint left 💀" << RESET << std::endl;
+	else if (_energyPoint == 0)
+		std::cout << BACKGROUNDRED << _name << " cannot perform action no energy left" << RESET << std::endl;
 	else
 		return true;
 	return false;

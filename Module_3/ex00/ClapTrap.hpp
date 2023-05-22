@@ -7,20 +7,22 @@ class ClapTrap
 {
 private:
 		ClapTrap();
-		std::string name;
-		int32_t hitPoint;
-		int32_t energyPoint;
-		int32_t attackDamage;
+
+		std::string _name;
+		int32_t 	_hitPoint;
+		int32_t 	_energyPoint;
+		int32_t 	_attackDamage;
+
+		bool canPerformAction() const;
 public:
-		ClapTrap(std::string& nameToSet);
+		ClapTrap(const std::string& nameToSet);
 		ClapTrap(const ClapTrap& rhs);
-		ClapTrap& operator=(const ClapTrap rhs);
+		ClapTrap& operator=(const ClapTrap& rhs);
 		~ClapTrap();
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		bool canPerformAction(void) const;
 };
 
 #define RED   "\x1B[31m"

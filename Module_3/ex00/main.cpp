@@ -3,16 +3,16 @@
 
 int	main(void)
 {
-	std::string robotOne = "chatGPT";
-	std::string human = "human";
-	ClapTrap chatGPT(robotOne);
+	ClapTrap pika("Pikachu");
 
-	std::cout << Reverse;
-	chatGPT.attack(human);
-	for (int i = 0; i < 9; i++)
-		chatGPT.beRepaired(69);
-	chatGPT.takeDamage(630);
-	chatGPT.beRepaired(69);
-	chatGPT.takeDamage(69);
-	chatGPT.beRepaired(69);
+	pika.attack("Onyx");
+	pika.takeDamage(5);
+	pika.beRepaired(5);
+	for (int i = 0; i < 8; i++) // There to remove all energy points
+		pika.beRepaired(5);
+	pika.attack("Onyx"); // Cannot attack no energy left
+	pika.takeDamage(50);
+	pika.attack("Onyx"); // Cannot attack since it's dead
+	ClapTrap pika_two = pika;
+	pika_two.attack("Onyx");
 }

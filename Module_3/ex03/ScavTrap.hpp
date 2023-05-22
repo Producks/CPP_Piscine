@@ -5,11 +5,11 @@
 class ScavTrap: virtual public ClapTrap
 {
 private:
-		bool _guard_active;
-protected:
 		ScavTrap();
+protected:
+		bool _guard_active;
 public:
-		ScavTrap(const std::string& nameToSet);
+		ScavTrap(const std::string& name);
 		ScavTrap(const ScavTrap& rhs);
 		ScavTrap& operator=(const ScavTrap& rhs);
 		~ScavTrap();

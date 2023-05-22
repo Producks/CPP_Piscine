@@ -1,15 +1,16 @@
 #include <iostream>
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name), _guard_active(false)
+ScavTrap::ScavTrap(const std::string &name): ClapTrap(name)
 {
-	std::cout << Underline << GRN << "ScavTrap Constructor Called" << RESET << std::endl;
+	std::cout << Underline << GRN << "ScavTrap Name Constructor Called" << RESET << std::endl;
 	_hitPoint = 100;
 	_energyPoint = 50;
 	_attackDamage = 20;
+	_guard_active = false;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& rhs)
+ScavTrap::ScavTrap(const ScavTrap& rhs): ClapTrap(rhs)
 {
 	std::cout << Underline << BLU << "ScavTrap Copy Constructor Called" << RESET << std::endl;
 	*this = rhs;
@@ -35,7 +36,7 @@ void ScavTrap::attack(const std::string& target)
 	if (this->canPerformAction())
 	{
 		_energyPoint--;
-		std::cout << Underline << BGRE << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << RESET << std::endl;
+		std::cout << Underline << BGRE << "ScavTrap " << _name << " attacks " << target << " causing " << _attackDamage << " points of damage!" << RESET << std::endl;
 	}
 }
 
@@ -47,5 +48,5 @@ void ScavTrap::guardGate()
 		_guard_active = true;
 	}
 	else
-		std::cout << Underline << CYN << "Scavtrap is already in Gatekeeper mode" << std::endl;
+		std::cout << Underline << CYN << "Scavtrap is already in Gatekeeper mode" << RESET << std::endl;
 }

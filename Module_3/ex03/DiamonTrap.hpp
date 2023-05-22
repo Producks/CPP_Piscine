@@ -5,7 +5,7 @@
 #include "ScavTrap.hpp"
 
 
-class DiamondTrap: public ScavTrap, public FragTrap
+class DiamondTrap: public ScavTrap, public FragTrap // how to get fired from your job
 {
 private:
 		std::string _name;

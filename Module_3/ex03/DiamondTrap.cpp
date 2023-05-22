@@ -1,19 +1,17 @@
 #include <iostream>
 #include "DiamonTrap.hpp"
 
-DiamondTrap::DiamondTrap(){}
-
-DiamondTrap::DiamondTrap(const std::string& nameToSet)
+DiamondTrap::DiamondTrap(const std::string& nameToSet): ClapTrap("BOZO"), ScavTrap("dot"), FragTrap("GOV")
 {
 	std::cout << Underline << Bold << GRN << "DiamondTrap Name constructor called" << RESET << std::endl;
-	ClapTrap::_name = nameToSet + "_clap_name";
+	ClapTrap::_name = nameToSet + "clap_name";
 	_name = nameToSet;
 	_hitPoint = FragTrap::_hitPoint;
 	_energyPoint = ScavTrap::_energyPoint;
 	_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& rhs)
+DiamondTrap::DiamondTrap(const DiamondTrap& rhs): ClapTrap(rhs), ScavTrap(rhs), FragTrap(rhs)
 {
 	std::cout << Underline << Bold << BLU << "DiamondTrap Copy constructor called" << RESET << std::endl;
 	*this = rhs;
