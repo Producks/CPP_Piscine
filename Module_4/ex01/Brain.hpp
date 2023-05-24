@@ -4,14 +4,14 @@
 
 #define NBR_IDEAS 100
 
-class Brain
-{
-private:
-		std::string _ideas[NBR_IDEAS];
-public:
-		Brain();
-		Brain(const Brain& rhs);
-		~Brain();
+class Brain {
+ private:
+  std::string ideas_[NBR_IDEAS];
 
-		Brain& operator=(const Brain& rhs);
+ public:
+  Brain();
+  Brain(const Brain& rhs);
+  virtual ~Brain();
+
+  Brain& operator=(const Brain& rhs);
 };

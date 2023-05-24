@@ -4,15 +4,14 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat: public WrongAnimal
-{
-public:
-		WrongCat();
-		WrongCat(const std::string& type);
-		WrongCat(const WrongCat& rhs);
-		~WrongCat();
+class WrongCat : public WrongAnimal {
+ public:
+  WrongCat();
+  WrongCat(const std::string& type);
+  WrongCat(const WrongCat& rhs);
+  ~WrongCat();
 
-		WrongCat& operator=(const WrongCat& rhs);
+  WrongCat& operator=(const WrongCat& rhs);
 
-		void makeSound() const;
+  void makeSound() const;
 };

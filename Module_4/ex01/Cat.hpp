@@ -1,20 +1,21 @@
 #pragma once
 
 #include <iostream>
+
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
-{
-private:
-		Brain* _brain;
-public:
-		Cat();
-		Cat(const std::string& type);
-		Cat(const Cat& rhs);
-		~Cat();
+class Cat : public Animal {
+ private:
+  Brain* brain_;
 
-		Cat& operator=(const Cat& rhs);
+ public:
+  Cat();
+  Cat(const std::string& type);
+  Cat(const Cat& rhs);
+  virtual ~Cat();
 
-		void makeSound() const;
+  Cat& operator=(const Cat& rhs);
+
+  void makeSound() const;
 };
