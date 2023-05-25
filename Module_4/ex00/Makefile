@@ -28,4 +28,10 @@ fclean:clean
 
 re:fclean all
 
-.PHONY: all clean re fclean
+run:all
+	./$(NAME)
+
+leak:all
+	 valgrind --leak-check=yes ./$(NAME)
+
+.PHONY: all clean re fclean run leak

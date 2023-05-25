@@ -5,13 +5,13 @@
 #include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal {
- public:
+public:
   WrongCat();
-  WrongCat(const std::string& type);
-  WrongCat(const WrongCat& rhs);
+  WrongCat(const std::string &type);
+  WrongCat(const WrongCat &rhs);
   ~WrongCat();
 
-  WrongCat& operator=(const WrongCat& rhs);
+  WrongCat &operator=(const WrongCat &rhs);
 
   void makeSound() const;
 };

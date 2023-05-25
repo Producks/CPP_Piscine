@@ -1,7 +1,15 @@
-#include "Animal.hpp"
-#include "Test.hpp"
+#include <iomanip>
+#include <iostream>
 
-int	main(void)
+#include "Brain.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+
+int main()
 {
-	Animal *ptr = new Test;
+	{
+		Dog a("Hey");
+	}
+	return 0;
 }

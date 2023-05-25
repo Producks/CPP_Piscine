@@ -1,4 +1,4 @@
-NAME = abstract_animal
+NAME = not_final_fantasy_btw
 
 CC = c++
 
@@ -7,12 +7,11 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC =	main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Brain.cpp
+		AMateria.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		MateriaSource.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
