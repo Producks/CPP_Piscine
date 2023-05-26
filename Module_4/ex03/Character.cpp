@@ -4,14 +4,15 @@
 
 #include "AMateria.hpp"
 
-Character::Character() : name_("Default"), nbr_materia_equip_(0) {
+Character::Character()
+    : name_("Default"), nbr_materia_equip_(0), pointerCount_(0) {
   for (int i = 0; i < MAX_MATERIA_SIZE; i++) {
     materia_[i] = NULL;
   }
 }
 
 Character::Character(const std::string &name)
-    : name_(name), nbr_materia_equip_(0) {
+    : name_(name), nbr_materia_equip_(0), pointerCount_(0) {
   for (int i = 0; i < MAX_MATERIA_SIZE; i++) {
     materia_[i] = NULL;
   }
@@ -26,9 +27,11 @@ Character &Character::operator=(const Character &rhs) {
   name_ = rhs.name_;
   nbr_materia_equip_ = rhs.nbr_materia_equip_;
   for (int i = 0; i < MAX_MATERIA_SIZE; i++) {
-    if (materia_[i]) delete materia_[i];
+    if (materia_[i])
+      delete materia_[i];
     materia_[i] = rhs.materia_[i];
   }
+  pointerCount_ = 0;
   return *this;
 }
 
@@ -38,6 +41,7 @@ Character::~Character() {
       delete materia_[i];
     }
   }
+  clearGarbage();
 }
 
 std::string const &Character::getName() const { return name_; }
@@ -52,7 +56,6 @@ void Character::equip(AMateria *m) {
       continue;
     } else {
       materia_[i] = m;
-      std::cout << &materia_[i] << std::endl << &m << std::endl;
       nbr_materia_equip_++;
       break;
     }
@@ -68,6 +71,7 @@ void Character::unequip(int index) {
     std::cout << "Invalid index" << std::endl;
     return;
   }
+  addGarbage(materia_[index]);
   materia_[index] = NULL;
   nbr_materia_equip_--;
 }
@@ -83,4 +87,19 @@ void Character::use(int idx, ICharacter &target) {
   }
   materia_[idx]->use(target);
   unequip(idx);
+}
+
+void Character::addGarbage(AMateria *materia) {
+  if (pointerCount_ == MAX_POINTERS)
+    clearGarbage();
+  pointers_[pointerCount_] = materia;
+  pointerCount_++;
+}
+
+void Character::clearGarbage() {
+  while (pointerCount_ != 0) {
+    pointerCount_--;
+    delete pointers_[pointerCount_];
+  }
+  pointerCount_ = 0;
 }
