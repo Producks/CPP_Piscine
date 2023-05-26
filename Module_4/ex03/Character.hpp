@@ -1,18 +1,23 @@
 #pragma once
 
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
+#include <ctype.h>
 
 #include <iostream>
 
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+
+#define MAX_MATERIA_SIZE 4
+
 class Character : public ICharacter {
-private:
+ private:
   Character();
 
   std::string name_;
-  AMateria *materia_[4];
+  AMateria *materia_[MAX_MATERIA_SIZE];
+  uint8_t nbr_materia_equip_;
 
-public:
+ public:
   Character(const std::string &name);
   Character(const Character &rhs);
   ~Character();

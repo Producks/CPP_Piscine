@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-AMateria::AMateria() : type_("") {}
+AMateria::AMateria() : type_("BOZODOTCOM") {}
 
 AMateria::AMateria(const AMateria &rhs) { *this = rhs; }
 

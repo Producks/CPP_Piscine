@@ -1,21 +1,24 @@
 #pragma once
 
+#include <ctype.h>
+
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
-#include <ctype.h>
+#define MAX_MATERIA_SIZE 4
 
-class MateriaSource: public IMateriaSource{
-private:
- AMateria *materia_[4];
- uint8_t  knowledge_count_;
-public:
+class MateriaSource : public IMateriaSource {
+ private:
+  AMateria *materia_[MAX_MATERIA_SIZE];
+  uint8_t materia_count_;
+
+ public:
   MateriaSource();
   MateriaSource(const MateriaSource &rhs);
   ~MateriaSource();
 
   MateriaSource &operator=(const MateriaSource &rhs);
 
-  void learnMateria(AMateria*);
-  AMateria* createMateria(std::string const &type);
+  void learnMateria(AMateria *materia); //bozo giving us bad protoype
+  AMateria *createMateria(std::string const &type);
 };
