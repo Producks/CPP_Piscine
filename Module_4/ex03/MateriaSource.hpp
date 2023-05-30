@@ -5,10 +5,9 @@
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
-#define MAX_MATERIA_SIZE 4
-
 class MateriaSource : public IMateriaSource {
  private:
+  static const uint8_t MAX_MATERIA_SIZE = 4;
   AMateria *materia_[MAX_MATERIA_SIZE];
   uint8_t materia_count_;
 

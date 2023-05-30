@@ -1,5 +1,5 @@
 #include "Brain.hpp"
-
+#include "_colors.hpp"
 #include <iostream>
 
 Brain::Brain() {

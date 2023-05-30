@@ -10,7 +10,7 @@ public:
   Animal();
   Animal(const std::string &type);
   Animal(const Animal &rhs);
-  ~Animal();
+  virtual ~Animal();
 
   Animal &operator=(const Animal &rhs);
 
