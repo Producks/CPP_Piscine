@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Bureaucrat.hpp"
+#include "typeint.h"
 #include <exception>
 #include <iostream>
 
@@ -8,15 +9,15 @@ class Bureaucrat; // Forward declaration garbage
 
 class Form {
 public:
-  Form(const std::string &name, const uint8_t &gradeToSign,
-       const uint8_t &gradeToExecute);
+  Form(const std::string &name, const m_uint8_t &gradeToSign,
+       const m_uint8_t &gradeToExecute);
   Form(const Form &rhs);
   virtual ~Form();
 
   Form &operator=(const Form &rhs);
 
-  const uint8_t &getGradeExecute() const;
-  const uint8_t &getGradeSign() const;
+  const m_uint8_t &getGradeExecute() const;
+  const m_uint8_t &getGradeSign() const;
   const bool &getSignedStatus() const;
   const std::string &getFormName() const;
 
@@ -52,8 +53,8 @@ public:
 
 private:
   const std::string name_;
-  const uint8_t gradeToSign_;
-  const uint8_t gradeToExecute_;
+  const m_uint8_t gradeToSign_;
+  const m_uint8_t gradeToExecute_;
   bool signed_;
   Form();
 };

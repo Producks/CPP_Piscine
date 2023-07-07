@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() {}
 
-Bureaucrat::Bureaucrat(const std::string &name, const uint8_t &grade)
+Bureaucrat::Bureaucrat(const std::string &name, const m_uint8_t &grade)
     : name_(name) {
   if (grade > 150)
     throw GradeTooLowException();
@@ -26,17 +26,17 @@ Bureaucrat::~Bureaucrat() {}
 
 const std::string &Bureaucrat::getName() const { return name_; }
 
-const uint8_t &Bureaucrat::getGrade() const { return grade_; }
+const m_uint8_t &Bureaucrat::getGrade() const { return grade_; }
 
-void Bureaucrat::incrementGrade(uint8_t amount) {
-  int32_t result = grade_ - amount;
+void Bureaucrat::incrementGrade(m_uint8_t amount) {
+  m_int32_t result = grade_ - amount;
   if (result <= 0 || amount > 150)
     throw GradeTooHighException();
   grade_ = result;
 }
 
-void Bureaucrat::decrementGrade(uint8_t amount) {
-  uint16_t result = grade_ + amount;
+void Bureaucrat::decrementGrade(m_uint8_t amount) {
+  m_uint16_t result = grade_ + amount;
   if (result > 150 || amount > 150)
     throw GradeTooLowException();
   grade_ = result;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Form.hpp"
+#include "typeint.h"
 #include <iostream>
 
 class Form;

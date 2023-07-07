@@ -26,6 +26,94 @@ int main(void)
     catch (Intern::InvalidFormName &exception){
       std::cout << exception.what() << std::endl;
     }
+		catch (std::exception &exception){
+			std::cout << exception.what() << std::endl;
+		}
   }
+	{
+		try{
+			form = intern.makeForm("PresidentialPardonForm", "Trump");
+      form->beSigned(bozoThree);
+      bozoThree.executeForm(*form);
+      delete form;
+    }
+    catch (std::bad_alloc &exception){
+      std::cout << exception.what() << std::endl;
+    }
+    catch (Intern::InvalidFormName &exception){
+      std::cout << exception.what() << std::endl;
+    }
+		catch (std::exception &exception){
+			std::cout << exception.what() << std::endl;
+		}
+	}
+	{
+		try{
+			form = intern.makeForm("ShrubberyCreationForm", "Treess");
+      form->beSigned(bozo);
+      bozoThree.executeForm(*form);
+      delete form;
+    }
+    catch (std::bad_alloc &exception){
+      std::cout << exception.what() << std::endl;
+    }
+    catch (Intern::InvalidFormName &exception){
+      std::cout << exception.what() << std::endl;
+    }
+		catch (std::exception &exception){
+			std::cout << exception.what() << std::endl;
+		}
+	}
+	{
+		try{
+			form = intern.makeForm("ShrubberyCreationForm", "Treess");
+      form->beSigned(bozoThree);
+      bozoThree.executeForm(*form);
+      delete form;
+    }
+    catch (std::bad_alloc &exception){
+      std::cout << exception.what() << std::endl;
+    }
+    catch (Intern::InvalidFormName &exception){
+      std::cout << exception.what() << std::endl;
+    }
+		catch (std::exception &exception){
+			std::cout << exception.what() << std::endl;
+		}
+	}
+	{
+		try{
+			form = intern.makeForm("RobotomyRequestForm", "ZZZ");
+      form->beSigned(bozoThree);
+      bozoThree.executeForm(*form);
+      delete form;
+    }
+    catch (std::bad_alloc &exception){
+      std::cout << exception.what() << std::endl;
+    }
+    catch (Intern::InvalidFormName &exception){
+      std::cout << exception.what() << std::endl;
+    }
+		catch (std::exception &exception){
+			std::cout << exception.what() << std::endl;
+		}
+	}
+	{
+		try{
+			form = intern.makeForm(NULL, NULL);
+      form->beSigned(bozoThree);
+      bozoThree.executeForm(*form);
+      delete form;
+    }
+    catch (std::bad_alloc &exception){
+      std::cout << exception.what() << std::endl;
+    }
+    catch (Intern::InvalidFormName &exception){
+      std::cout << exception.what() << std::endl;
+    }
+		catch (std::exception &exception){
+			std::cout << exception.what() << std::endl;
+		}
+	}
   return 0;
 }

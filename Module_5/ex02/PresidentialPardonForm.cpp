@@ -10,6 +10,7 @@ PresidentialPardonForm::PresidentialPardonForm(
 PresidentialPardonForm &
 PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs) {
   std::cout << "What are you doing???" << std::endl;
+	(void)rhs;
   return *this;
 }
 

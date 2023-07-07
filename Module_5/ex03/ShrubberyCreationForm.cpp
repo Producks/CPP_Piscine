@@ -9,6 +9,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs)
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs) {
 	std::cout << "???🤡" << std::endl;
+	(void)rhs;
 	return *this;
 }
 
@@ -16,9 +17,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const{
 	std::ofstream	output;
+	std::string fileName = target_ + "_shrubbery";
 
 	canBeExecuted(executor);
-	output.open(target_ + "_shrubbery", std::ofstream::out);
+	output.open(fileName.c_str(), std::ofstream::out);
 	if (!output.is_open())
 		throw FileError();
 	output << "               ,@@@@@@@," << std::endl;

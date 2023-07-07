@@ -34,4 +34,5 @@ int main(void)
 			std::cout << exception.what() << std::endl;
 		}
 	}
+	return 0;
 }

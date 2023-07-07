@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Bureaucrat.hpp"
+#include "typeint.h"
 #include <iostream>
 
 class Bureaucrat; // Forward declaration garbage

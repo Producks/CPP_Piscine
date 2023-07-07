@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "typeint.h"
 
 class Bureaucrat {
 public:

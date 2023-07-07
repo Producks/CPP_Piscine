@@ -1,4 +1,4 @@
-NAME = bureaucrat
+NAME = static_conversion
 
 CC = c++
 
@@ -7,11 +7,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC =	main.cpp \
-			Bureaucrat.cpp \
-			Form.cpp \
-			ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp \
-			PresidentialPardonForm.cpp
+			TypeConversion.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -34,7 +30,7 @@ re:fclean all
 run:all
 	./$(NAME)
 
-leak:all
+leaks:all
 	 valgrind --leak-check=yes ./$(NAME)
 
-.PHONY: all clean re fclean run leak
+.PHONY: all clean re fclean run leaks

@@ -1,8 +1,9 @@
 #include "Form.hpp"
 
-Form::Form(const std::string &name, const uint8_t &gradeToSign, const uint8_t &gradeToExecute)
-    : name_(name), signed_(false), gradeToSign_(gradeToSign),
-      gradeToExecute_(gradeToExecute) {
+Form::Form(const std::string &name, const uint8_t &gradeToSign,
+           const uint8_t &gradeToExecute)
+    : name_(name), gradeToSign_(gradeToSign), gradeToExecute_(gradeToExecute),
+      signed_(false) {
   if (gradeToSign > 150 || gradeToExecute > 150)
     throw GradeTooHighException();
   if (gradeToSign < 1 || gradeToExecute < 1)
@@ -10,9 +11,8 @@ Form::Form(const std::string &name, const uint8_t &gradeToSign, const uint8_t &g
 }
 
 Form::Form(const Form &rhs)
-    : name_(rhs.getFormName()), signed_(rhs.getSignedStatus()),
-      gradeToExecute_(rhs.getGradeExecute()), gradeToSign_(rhs.getGradeSign()) {
-}
+    : name_(rhs.getFormName()), gradeToSign_(rhs.getGradeSign()),
+      gradeToExecute_(rhs.getGradeExecute()), signed_(rhs.getSignedStatus()) {}
 
 Form &Form::operator=(const Form &rhs) {
   std::cout << "Can only copy status since everything else is const"
@@ -29,9 +29,14 @@ const std::string &Form::getFormName() const { return name_; }
 const bool &Form::getSignedStatus() const { return signed_; }
 
 void Form::beSigned(const Bureaucrat &rhs) {
+	try{
   if (getGradeSign() < rhs.getGrade())
     throw GradeTooLowException();
   signed_ = true;
+	}
+	catch(std::exception &exception){
+		std::cout << exception.what() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &rhs) {

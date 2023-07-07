@@ -11,7 +11,7 @@ int main(void)
 			Bozo.decrementGrade(80);
 			std::cout << Bozo << std::endl;
 		}
-		catch (std::exception &exception){ //avoid slicing
+		catch (std::exception &exception){
 			std::cout << exception.what() << std::endl;
 		}
 	}
