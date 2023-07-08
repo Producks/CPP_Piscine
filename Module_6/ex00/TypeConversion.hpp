@@ -37,6 +37,7 @@ public:
 
 	const std::string printSpecialFloat() const;
 	const std::string printSpecialDouble() const;
+	const std::string printOverflow(const long int value) const;
 
 	class EmptyArg : public std::exception{
 		public:
@@ -46,6 +47,11 @@ public:
 		public:
 			virtual const char *what() const throw() { return "Invalid input"; }
 	};
+	class StringTooLong : public std::exception{
+		public:
+			virtual const char *what() const throw() { return "Argument is too long for the type"; }
+	};
+
 	class InvalidType : public std::exception{};
 private:
   TypeConversion();
