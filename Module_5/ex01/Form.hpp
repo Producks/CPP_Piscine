@@ -23,14 +23,10 @@ public:
   const std::string &getFormName() const;
 
   class GradeTooHighException : public std::exception {
-    virtual const char *what() const throw() {
-      return "Grade is too high for the form";
-    }
+    virtual const char *what() const throw();
   };
   class GradeTooLowException : public std::exception {
-    virtual const char *what() const throw() {
-      return "Grade is too low for the form";
-    }
+    virtual const char *what() const throw();
   };
 
 private:

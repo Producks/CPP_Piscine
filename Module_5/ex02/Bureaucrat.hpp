@@ -19,20 +19,20 @@ public:
 
   void incrementGrade(m_uint8_t amount);
   void decrementGrade(m_uint8_t amount);
-	void signForm(Form &rhs) const;
-	void executeForm(Form const & form) const;
-
+  void signForm(Form &rhs) const;
+  void executeForm(Form const &form) const;
   class GradeTooHighException : public std::exception {
-    virtual const char *what() const throw() { return "Grade is too high"; }
+    virtual const char *what() const throw();
   };
 
   class GradeTooLowException : public std::exception {
-    virtual const char *what() const throw() { return "Grade is too low"; }
+    virtual const char *what() const throw();
   };
+
 private:
   Bureaucrat();
   const std::string name_;
   m_uint8_t grade_;
 };
 
-std::ostream &operator<<(std::ostream& out, const Bureaucrat &rhs);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);

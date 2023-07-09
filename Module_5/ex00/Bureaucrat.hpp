@@ -18,11 +18,11 @@ public:
   void decrementGrade(uint8_t amount);
 
   class GradeTooHighException : public std::exception {
-    virtual const char *what() const throw() { return "Grade is too high"; }
+    virtual const char *what() const throw();
   };
 
   class GradeTooLowException : public std::exception {
-    virtual const char *what() const throw() { return "Grade is too low"; }
+    virtual const char *what() const throw();
   };
 
 private:

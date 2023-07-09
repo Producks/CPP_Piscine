@@ -40,3 +40,7 @@ Form *Intern::makeForm(const std::string &formName,
   }
   return newForm;
 }
+
+const char *Intern::InvalidFormName::what() const throw(){
+	return "Invalid form name";
+}

@@ -258,3 +258,15 @@ void TypeConversion::printConversion() {
     std::cout << exception.what() << std::endl;
   }
 }
+
+const char *TypeConversion::EmptyArg::what() const throw() {
+  return "Argument was empty";
+}
+
+const char *TypeConversion::InvalidInput::what() const throw() {
+  return "Invalid input";
+}
+
+const char *TypeConversion::StringTooLong::what() const throw() {
+  return "Argument is too long for the type";
+}

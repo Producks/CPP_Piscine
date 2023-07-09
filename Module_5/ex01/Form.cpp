@@ -46,3 +46,11 @@ std::ostream &operator<<(std::ostream &out, const Form &rhs) {
       << " Is signed:" << rhs.getSignedStatus() << std::endl;
   return out;
 }
+
+const char *Form::GradeTooHighException::what() const throw(){
+	 return "Grade is too high for the form";
+}
+
+const char *Form::GradeTooLowException::what() const throw(){
+	 return "Grade is too low for the form";
+}

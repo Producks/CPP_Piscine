@@ -41,15 +41,15 @@ public:
 
 	class EmptyArg : public std::exception{
 		public:
-			virtual const char *what() const throw() { return "Argument was empty"; }
+			virtual const char *what() const throw();
 	};
 	class InvalidInput : public std::exception{
 		public:
-			virtual const char *what() const throw() { return "Invalid input"; }
+			virtual const char *what() const throw();
 	};
 	class StringTooLong : public std::exception{
 		public:
-			virtual const char *what() const throw() { return "Argument is too long for the type"; }
+			virtual const char *what() const throw();
 	};
 
 	class InvalidType : public std::exception{};

@@ -27,28 +27,18 @@ public:
   void canBeExecuted(Bureaucrat const &executor) const;
 
   class GradeTooHighException : public std::exception {
-  public:
-    virtual const char *what() const throw() {
-      return "Grade is too high for the form";
-    }
+    virtual const char *what() const throw();
   };
   class GradeTooLowException : public std::exception {
-  public:
-    virtual const char *what() const throw() {
-      return "Grade is too low for the form";
-    }
+    virtual const char *what() const throw();
   };
   class ExecutionRights : public std::exception {
   public:
-    virtual const char *what() const throw() {
-      return "Cannot execute the form, you don't have the grade to excecute it";
-    }
+    virtual const char *what() const throw();
   };
   class UnsignedForm : public std::exception {
   public:
-    virtual const char *what() const throw() {
-      return "The form is not signed";
-    }
+    virtual const char *what() const throw();
   };
 
 private:

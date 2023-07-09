@@ -1,13 +1,13 @@
 #include "Base.hpp"
-#include "A.hpp"
+#include "B.hpp"
 
 int main(void)
 {
 	Base test;
-	A a;
+	B b;
 
 	Base *ptr = test.generate();
 	test.identify(ptr);
-	test.identify(a);
+	test.identify(b);
 	delete ptr;
 }
