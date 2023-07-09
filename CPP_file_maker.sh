@@ -26,7 +26,7 @@ for ((i = 0 ; i < $number ; i++)); do
 	file_list=()
 	read -p "Enter the file names for ex0$i (separated by spaces): " -a filenames
 	touch "${filenames[@]/%/.c}"
-    touch "${filenames[@]/%/.hpp}"
+  touch "${filenames[@]/%/.hpp}"
 	touch main.cpp
 	cp $makefile_path .
 	read -p "Enter the executable name: " new_executable_name
