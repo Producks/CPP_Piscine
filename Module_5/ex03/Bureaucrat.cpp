@@ -24,6 +24,18 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 
 Bureaucrat::~Bureaucrat() {}
 
+const char *Bureaucrat::GradeTooHighException::what() const throw(){
+	return "Grade is too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw(){
+	return "Grade is too low";
+}
+
+const char *Bureaucrat::FormSignError::what() const throw(){
+	 return "Form couldn't be sign";
+}
+
 const std::string &Bureaucrat::getName() const { return name_; }
 
 const m_uint8_t &Bureaucrat::getGrade() const { return grade_; }
@@ -45,37 +57,21 @@ void Bureaucrat::decrementGrade(m_uint8_t amount) {
 void Bureaucrat::signForm(Form &rhs) const {
   try {
     rhs.beSigned(*this);
-    std::cout << getName() << " signed " << rhs.getFormName() << " form "
-              << std::endl;
-  } catch (const std::exception &exception) {
-    std::cout << getName() << " Couldn't sign " << rhs.getFormName()
-              << " form because " << exception.what() << std::endl;
+    std::cout << getName() << " signed " << rhs.getFormName() << " form " << std::endl;
+  }
+	catch (const std::exception &exception) {
+    std::cout << getName() << " Couldn't sign " << rhs.getFormName() << " form because "
+              << exception.what() << std::endl;
+    throw FormSignError();
   }
 }
 
 void Bureaucrat::executeForm(Form const &form) const {
-  try {
-    form.execute(*this);
-  }
-  catch (const Form::ExecutionRights &exception){
-    std::cout << exception.what() << std::endl;
-  }
-  catch(const Form::UnsignedForm &exception){
-    std::cout << "hey" << std::endl;
-    std::cout << exception.what() << std::endl;
-  }
+  form.execute(*this);
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs) {
   out << rhs.getName() << ", bureaucrat grade "
       << static_cast<int>(rhs.getGrade());
   return out;
-}
-
-const char *Bureaucrat::GradeTooHighException::what() const throw(){
-	return "Grade is too high";
-}
-
-const char *Bureaucrat::GradeTooLowException::what() const throw(){
-	return "Grade is too low";
 }

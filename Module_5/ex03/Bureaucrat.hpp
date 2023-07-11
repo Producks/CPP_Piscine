@@ -28,6 +28,9 @@ public:
   class GradeTooLowException : public std::exception {
     virtual const char *what() const throw();
   };
+  class FormSignError : public std::exception {
+    virtual const char *what() const throw();
+  };
 
 private:
   Bureaucrat();

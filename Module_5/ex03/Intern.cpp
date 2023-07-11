@@ -15,8 +15,18 @@ Intern &Intern::operator=(const Intern &rhs) {
 
 Intern::~Intern() {}
 
+const char *Intern::InvalidFormName::what() const throw(){
+	return "Invalid form name";
+}
+
+const char *Intern::NullOrEmpty::what() const throw(){
+	return "Argument were either null or empty";
+}
+
 Form *Intern::makeForm(const std::string &formName,
                        const std::string &target) const {
+	if (formName.empty() || target.empty())
+		throw NullOrEmpty();
   std::string nameArray[3];
   nameArray[0] = "ShrubberyCreationForm";
   nameArray[1] = "RobotomyRequestForm";
@@ -39,8 +49,4 @@ Form *Intern::makeForm(const std::string &formName,
     throw InvalidFormName();
   }
   return newForm;
-}
-
-const char *Intern::InvalidFormName::what() const throw(){
-	return "Invalid form name";
 }

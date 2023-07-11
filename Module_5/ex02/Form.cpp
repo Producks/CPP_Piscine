@@ -23,6 +23,22 @@ Form &Form::operator=(const Form &rhs) {
 
 Form::~Form() {}
 
+const char *Form::GradeTooHighException::what() const throw() {
+  return "Grade is too high for the form";
+}
+
+const char *Form::GradeTooLowException::what() const throw() {
+  return "Grade is too low for the form";
+}
+
+const char *Form::ExecutionRights::what() const throw() {
+  return "Cannot execute the form, you don't have the grade to excecute it";
+}
+
+const char *Form::UnsignedForm::what() const throw() {
+  return "The form is not signed";
+}
+
 const m_uint8_t &Form::getGradeExecute() const { return gradeToExecute_; }
 const m_uint8_t &Form::getGradeSign() const { return gradeToSign_; }
 const std::string &Form::getFormName() const { return name_; }
@@ -47,20 +63,4 @@ std::ostream &operator<<(std::ostream &out, const Form &rhs) {
       << " Form name: " << rhs.getFormName()
       << " Is signed:" << rhs.getSignedStatus() << std::endl;
   return out;
-}
-
-const char *Form::GradeTooHighException::what() const throw() {
-  return "Grade is too high for the form";
-}
-
-const char *Form::GradeTooLowException::what() const throw() {
-  return "Grade is too low for the form";
-}
-
-const char *Form::ExecutionRights::what() const throw() {
-  return "Cannot execute the form, you don't have the grade to excecute it";
-}
-
-const char *Form::UnsignedForm::what() const throw() {
-  return "The form is not signed";
 }
