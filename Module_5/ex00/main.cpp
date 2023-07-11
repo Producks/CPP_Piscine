@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <iomanip>
 
 int main(void)
 {
@@ -15,6 +16,7 @@ int main(void)
 			std::cout << exception.what() << std::endl;
 		}
 	}
+	std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
 	{
 		try{
 			Bureaucrat Bozo("Bozo", 69);
@@ -26,6 +28,7 @@ int main(void)
 			std::cout << exception.what() << std::endl;
 		}
 	}
+	std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
 	{
 		try{
 			Bureaucrat Bozo("Bozo", 0xFF);
@@ -34,7 +37,8 @@ int main(void)
 			std::cout << exception.what() << std::endl;
 		}
 	}
-		{
+	std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
+	{
 		try{
 			Bureaucrat Bozo("Bozo", 0);
 		}
@@ -42,4 +46,5 @@ int main(void)
 			std::cout << exception.what() << std::endl;
 		}
 	}
+	return 0;
 }

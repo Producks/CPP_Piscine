@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include <iostream>
+#include <iomanip>
 
 int main(void)
 {
@@ -16,6 +17,18 @@ int main(void)
 			std::cout << exception.what() << std::endl;
 		}
 	}
+	std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
+	{
+		try{
+			Bureaucrat bozo("Bozo", 19);
+			Form form("Clown fiesta", 50, 5);
+			bozo.signForm(form);
+		}
+		catch (std::exception &exception){
+			std::cout << exception.what() << std::endl;
+		}
+	}
+	std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
 	{
 		try{
 			Bureaucrat bozo("Bozo", 69);
@@ -25,6 +38,7 @@ int main(void)
 			std::cout << exception.what() << std::endl;
 		}
 	}
+	std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
 	{
 		try{
 			Bureaucrat bozo("Bozo", 69);

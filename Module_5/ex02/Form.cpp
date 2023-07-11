@@ -29,14 +29,9 @@ const std::string &Form::getFormName() const { return name_; }
 const bool &Form::getSignedStatus() const { return signed_; }
 
 void Form::beSigned(const Bureaucrat &rhs) {
-	try{
   if (getGradeSign() < rhs.getGrade())
     throw GradeTooLowException();
   signed_ = true;
-	}
-	catch (std::exception &exception){
-		std::cout << exception.what() << std::endl;
-	}
 }
 
 void Form::canBeExecuted(const Bureaucrat &executor) const {

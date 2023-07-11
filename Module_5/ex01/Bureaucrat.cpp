@@ -23,6 +23,18 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 
 Bureaucrat::~Bureaucrat() {}
 
+const char *Bureaucrat::GradeTooHighException::what() const throw(){
+	return "Grade is too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw(){
+	return "Grade is too low";
+}
+
+const char *Bureaucrat::FormSignError::what() const throw(){
+	 return "Form couldn't be sign";
+}
+
 const std::string &Bureaucrat::getName() const { return name_; }
 
 const uint8_t &Bureaucrat::getGrade() const { return grade_; }
@@ -49,6 +61,7 @@ void Bureaucrat::signForm(Form &rhs) const {
 	catch (const std::exception &exception) {
     std::cout << getName() << " Couldn't sign " << rhs.getFormName() << " form because "
               << exception.what() << std::endl;
+    throw FormSignError();
   }
 }
 
@@ -56,12 +69,4 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs) {
   out << rhs.getName() << ", bureaucrat grade "
       << static_cast<int>(rhs.getGrade());
   return out;
-}
-
-const char *Bureaucrat::GradeTooHighException::what() const throw(){
-	return "Grade is too high";
-}
-
-const char *Bureaucrat::GradeTooLowException::what() const throw(){
-	return "Grade is too low";
 }

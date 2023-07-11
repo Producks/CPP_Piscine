@@ -55,6 +55,7 @@ int	main(int argc, char *argv[])
 			phonebook.DisplayContact();
 			std::cout << PNK << "Please enter an Index:" << RESET;
 			std::cin >> index;
+			std::cin.bad();
 			if (std::cin.fail()) 
 				 std::cout << RED << "Invalid input. Please enter an integer.🤡" << RESET << std::endl;
 			else if (index < 1 || index > 8)

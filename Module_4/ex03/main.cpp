@@ -10,7 +10,6 @@
 
 int main() 
 {
-	//std::system("aplay hooting.wav");
 	IMateriaSource *src = new MateriaSource();
   	src->learnMateria(new Ice());
  	src->learnMateria(new Cure());

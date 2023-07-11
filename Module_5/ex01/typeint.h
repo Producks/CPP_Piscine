@@ -4,7 +4,7 @@
 /* C++98 doesn't have those standard so i'll just import them myself */
 
 /* Signed */
-typedef char int8_t;
+typedef signed char int8_t;
 typedef short int int16_t;
 typedef int int32_t;
 typedef long long int64_t;

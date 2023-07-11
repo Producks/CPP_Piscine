@@ -4,6 +4,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
+#include <iomanip>
 
 int main(void)
 {
@@ -13,22 +14,35 @@ int main(void)
   Bureaucrat bozo("Clown", 150);
   Bureaucrat bozoTwo("Goof", 50);
   Bureaucrat bozoThree("Gandhi", 1);
-  {
+  try{
       bozo.executeForm(*shrubbery);
       bozoTwo.signForm(*shrubbery);
       bozoTwo.executeForm(*shrubbery);
+  } catch (std::exception &exception){
+    std::cout << exception.what() << std::endl;
   }
-  {
+  std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
+  try{
     bozo.signForm(*robot);
+  } catch (std::exception &exception){
+    std::cout << exception.what() << std::endl;
+  }
+  std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
+  try{
     bozoTwo.signForm(*robot);
     bozoTwo.executeForm(*robot);
-    bozoTwo.incrementGrade(30);
-    bozoTwo.executeForm(*robot);
+  } catch (std::exception &exception){
+    std::cout << exception.what() << std::endl;
   }
-  {
-    bozo.signForm(*president);
+  try{
+    bozoThree.signForm(*shrubbery);
+    bozoThree.signForm(*robot);
     bozoThree.signForm(*president);
+    bozoThree.executeForm(*shrubbery);
+    bozoThree.executeForm(*robot);
     bozoThree.executeForm(*president);
+  } catch (std::exception &exception){
+    std::cout << exception.what() << std::endl;
   }
   delete shrubbery;
   delete robot;
