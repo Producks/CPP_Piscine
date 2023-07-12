@@ -20,7 +20,7 @@ const char *Intern::InvalidFormName::what() const throw(){
 }
 
 const char *Intern::NullOrEmpty::what() const throw(){
-	return "Argument were either null or empty";
+	return "Argument was empty";
 }
 
 Form *Intern::makeForm(const std::string &formName,

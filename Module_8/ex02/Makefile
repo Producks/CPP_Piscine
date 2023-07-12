@@ -1,4 +1,4 @@
-NAME = span
+NAME = stack
 
 CC = c++
 
@@ -6,8 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRC =	main.cpp \
-			Span.cpp
+SRC =	main.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

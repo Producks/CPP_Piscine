@@ -5,7 +5,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <time.h>
-#include <typeinfo>
 
 #define RED "\x1B[31m"
 #define GRN "\x1B[32m"
@@ -22,10 +21,11 @@ Base::~Base(){};
 
 Base *Base::generate(void) {
   std::srand(time(NULL));
-  int randomValue = rand();
-  if (randomValue < RAND_MAX / 3)
+  int randomValue = rand() % 3;
+	std::cout << randomValue << std::endl;
+  if (randomValue == 1)
     return dynamic_cast<Base *>(new A);
-  else if (randomValue < (RAND_MAX / 3) * 2)
+  else if (randomValue == 2)
     return dynamic_cast<Base *>(new B);
   else
     return dynamic_cast<Base *>(new C);
@@ -57,7 +57,7 @@ void Base::identify(Base &p) {
     A &aResult = dynamic_cast<A &>(p);
     (void)aResult;
     std::cout << GRN << "Base reference was A" << RESET << std::endl;
-  } catch (std::bad_cast &exception) {
+  } catch (std::exception &exception) {
     std::cout << RED << "Base reference wasn't A " << exception.what() << RESET
               << std::endl;
   }
@@ -65,7 +65,7 @@ void Base::identify(Base &p) {
     B &bResult = dynamic_cast<B &>(p);
     (void)bResult;
     std::cout << GRN << "Base reference was B" << RESET << std::endl;
-  } catch (std::bad_cast &exception) {
+  } catch (std::exception &exception) {
     std::cout << RED << "Base reference wasn't B " << exception.what() << RESET
               << std::endl;
   }
@@ -73,7 +73,7 @@ void Base::identify(Base &p) {
     C &cResult = dynamic_cast<C &>(p);
     (void)cResult;
     std::cout << GRN << "Base reference was C" << RESET << std::endl;
-  } catch (std::bad_cast &exception) {
+  } catch (std::exception &exception) {
     std::cout << RED << "Base reference wasn't C " << exception.what() << RESET
               << std::endl;
   }

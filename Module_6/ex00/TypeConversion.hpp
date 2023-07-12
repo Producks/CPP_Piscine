@@ -57,4 +57,5 @@ private:
   TypeConversion();
   std::string argument_;
 	int type_;
+	int precision_;
 };

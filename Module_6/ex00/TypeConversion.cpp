@@ -7,7 +7,7 @@
 
 TypeConversion::TypeConversion() {}
 
-TypeConversion::TypeConversion(const char *arg) : argument_(arg), type_(none) {}
+TypeConversion::TypeConversion(const char *arg) : argument_(arg), type_(none), precision_(1) {}
 
 TypeConversion::TypeConversion(const TypeConversion &rhs) { *this = rhs; }
 
@@ -61,6 +61,8 @@ void TypeConversion::isFloat() {
     if (argument_[index] == '.') {
       if (dot)
         return;
+			if (argument_[index + 1] == 'f')
+				return ;
       dot = true;
       continue;
     }
@@ -68,8 +70,18 @@ void TypeConversion::isFloat() {
       return;
     }
   }
-  if (dot)
+  if (dot){
     type_ = floatType;
+		for (int i = 0; argument_[i]; i++){
+			if (argument_[i] == '.'){
+				precision_ = argument_.size() - i - 2;
+				if (precision_ > 10){
+					precision_ = 10;
+				}
+				break ;
+			}
+		}
+	}
 }
 
 void TypeConversion::isDouble() {
@@ -90,8 +102,17 @@ void TypeConversion::isDouble() {
       return;
     }
   }
-  if (dot)
+  if (dot){
     type_ = doubleType;
+		for (int i = 0; argument_[i]; i++){
+			if (argument_[i] == '.'){
+				precision_ = argument_.size() - i - 1;
+				if (precision_ > 10)
+					precision_ = 10;
+				break ;
+			}
+		}
+	}
 }
 
 void TypeConversion::isSpecial() {
@@ -192,11 +213,11 @@ void TypeConversion::printFloat() {
       std::cout << "float: " << static_cast<float>(atoi(argument_.c_str()))
                 << ".0f" << std::endl;
   } else if (type_ == floatType)
-    std::cout << std::fixed << std::setprecision(10)
+    std::cout << std::fixed << std::setprecision(precision_)
               << "float: " << strtof(argument_.c_str(), NULL) << "f"
               << std::endl;
   else if (type_ == doubleType)
-    std::cout << std::fixed << std::setprecision(10) << "float: "
+    std::cout << std::fixed << std::setprecision(precision_) << "float: "
               << static_cast<float>(strtod(argument_.c_str(), NULL)) << "f"
               << std::endl;
 }
@@ -227,11 +248,11 @@ void TypeConversion::printDouble() {
       std::cout << "double: " << static_cast<double>(atoi(argument_.c_str()))
                 << ".0" << std::endl;
   } else if (type_ == floatType)
-    std::cout << std::fixed << std::setprecision(10) << "double: "
+    std::cout << std::fixed << std::setprecision(precision_) << "double: "
               << static_cast<double>(strtof(argument_.c_str(), NULL))
               << std::endl;
   else if (type_ == doubleType)
-    std::cout << std::fixed << std::setprecision(10)
+    std::cout << std::fixed << std::setprecision(precision_)
               << "double: " << strtod(argument_.c_str(), NULL) << std::endl;
 }
 

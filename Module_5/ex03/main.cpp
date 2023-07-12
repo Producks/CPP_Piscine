@@ -94,7 +94,7 @@ int main(void) {
   std::cout << std::setfill('~') << std::setw(38) << "" << std::endl;
   {
     try {
-      form = intern.makeForm("", "");
+      form = intern.makeForm(NULL, "");
       form->beSigned(bozoThree);
       bozoThree.executeForm(*form);
       delete form;
