@@ -50,5 +50,17 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
+    {
+        Array<float> floats(5);
+        floats[0] = 0.1f;
+        floats[1] = -5.1f;
+        floats[2] = 3.1f;
+        floats[3] = 901.421f;
+        floats[4] = 69.69f;
+        for (int i = 0; i < 5; i++){
+            std::cout << floats[i] << " ";
+        }
+        std::cout << std::endl;
+    }
     return 0;
 }

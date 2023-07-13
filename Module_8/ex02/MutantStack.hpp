@@ -9,11 +9,7 @@ public:
   MutantStack(const MutantStack &rhs) { *this = rhs; };
   ~MutantStack(){};
 
-  MutantStack &operator=(const MutantStack &rhs) {
-    if (this == &rhs)
-      return *this;
-    return *this;
-  }
+  MutantStack &operator=(const MutantStack &rhs) { return *this; }
 
   typedef typename std::deque<T>::iterator iterator;
   typedef typename std::deque<T>::const_iterator const_iterator;
