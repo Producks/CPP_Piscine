@@ -69,6 +69,8 @@ void RPN::rpnCalculator(std::string input) {
       else
         throw std::runtime_error("Found invalid character");
     }
+		if (stack_.size() > 1)
+			throw std::runtime_error("Invalid syntax for postfix notation");
     cout << stack_.top() << endl;
     stack_.pop();
   } catch (std::exception &exception) {
