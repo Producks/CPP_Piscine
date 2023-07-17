@@ -1,4 +1,4 @@
-NAME = btc
+NAME = RPN
 
 CC = c++
 
@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC =	main.cpp \
-			BitcoinExchange.cpp
+			RPN.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -28,9 +28,9 @@ fclean:clean
 re:fclean all
 
 run:all
-	./$(NAME) input.txt
+	./$(NAME)
 
 leaks:all
-	 valgrind --leak-check=yes ./$(NAME) input.txt
+	 valgrind --leak-check=yes ./$(NAME)
 
 .PHONY: all clean re fclean run leaks
