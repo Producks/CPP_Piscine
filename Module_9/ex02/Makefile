@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC =	main.cpp \
-			Pmergeme.cpp
+			PmergeMe.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
