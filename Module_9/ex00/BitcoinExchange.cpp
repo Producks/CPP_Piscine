@@ -62,6 +62,8 @@ const std::string BitcoinExchange::getClosestTime(const std::string &date) {
       month--;
       if (!month) {
         year--;
+				if (year < 2009)
+					throw std::runtime_error("Error: invalid date " + date);
         month = 12;
       }
     }

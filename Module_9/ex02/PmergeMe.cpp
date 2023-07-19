@@ -25,12 +25,12 @@ void PmergeMe::sort(int argc, char **argv){
 	cout << endl;
 	std::clock_t startVector = std::clock();
 	sortVector(argc, argv);
-	double resultVector = static_cast<double>(std::clock() - startVector) / CLOCKS_PER_SEC;
+	double resultVector = static_cast<double>(std::clock() - startVector) / CLOCKS_PER_SEC * 1000;
 	time_t beginDeque = time(NULL); 
 	sortDeque(argc, argv);
 	time_t resultDeque = (time(NULL) - beginDeque);
-	cout << "Vector sorted " << argc - 1 << " elements in " << resultVector << endl;
-	cout << "Deque sorted " << argc - 1 << " elements in " << resultDeque << endl;
+	cout << "Vector sorted " << argc - 1 << " elements in " << resultVector << " us" << endl;
+	cout << "Deque sorted " << argc - 1 << " elements in " << resultDeque << " us" << endl;
 }
 
 bool PmergeMe::verifyParsing(int argc, char **argv){
@@ -88,8 +88,10 @@ void PmergeMe::insertSortVector(std::vector<std::pair<int, int> > &pairs, std::v
 	int index = 0;
 	while (!pairs.empty()){
 		int nbr = pairs.front().second;
-		std::vector<int>::iterator it = std::lower_bound(result.begin() + index++, result.end(), nbr);
-		result.insert(it, nbr);
+		if (nbr != -1){
+			std::vector<int>::iterator it = std::lower_bound(result.begin() + index++, result.end(), nbr);
+			result.insert(it, nbr);
+		}
 		pairs.erase(pairs.begin());
 	}
 }
@@ -126,8 +128,10 @@ void PmergeMe::insertSortDeque(std::deque<std::pair<int, int> > &pairs, std::deq
 	int index = 0;
 	while (!pairs.empty()){
 		int nbr = pairs.front().second;
-		std::deque<int>::iterator it = std::lower_bound(result.begin() + index++, result.end(), nbr);
-		result.insert(it, nbr);
+		if (nbr != -1){
+			std::deque<int>::iterator it = std::lower_bound(result.begin() + index++, result.end(), nbr);
+			result.insert(it, nbr);
+		}
 		pairs.erase(pairs.begin());
 	}
 }
